@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">EasyClaim</string>
     <string name="description_easyclaim_logo">Here is the logo of our app EasyClaim</string>
+    <string name="turn_on_device">1. Turn on the device</string>
+    <string name="activate_bluetooth">2. Activate the Bluetooth on your phone</string>
+    <string name="select_device">3. Select the device on your phone EasyClaim_IOT</string>
+    <string name="switch_label">Device Switch</string>
+    <string name="logo_description">EasyClaim Logo</string>
+    <!-- Add all other strings here -->
 </resources>
