@@ -16,6 +16,7 @@ package com.example.easyclaim.ble;/*
 
 
 
+import android.annotation.SuppressLint;
 import android.bluetooth.le.ScanResult;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,6 +83,7 @@ public class ScanResultAdapter extends RecyclerView.Adapter<ScanResultAdapter.Vi
         }
 
 
+        @SuppressLint({"MissingPermission", "SetTextI18n"})
         void bind(ScanResult result) {
             if (result != null && result.getDevice() != null) {
                 deviceNameTextView.setText(result.getDevice().getName() != null ? result.getDevice().getName() : "Unnamed");
