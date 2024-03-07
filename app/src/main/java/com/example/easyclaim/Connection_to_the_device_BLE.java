@@ -23,7 +23,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
-
+import java.util.Set;
+import java.util.HashSet;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -54,7 +55,8 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
     String Data_form_the_device = "data_for_easyclaim.txt";
     private ActivityResultLauncher<Intent> enableBluetoothLauncher;
 
-
+    private Handler handler = new Handler();
+    private int counter = 0; // Compteur pour suivre le nombre de lectures effectuées
     private ScanSettings scanSettings;
     private BluetoothAdapter bluetoothAdapter;
     private BluetoothLeScanner bleScanner;
@@ -66,6 +68,8 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
     // Déclarez une HashMap pour stocker les adresses MAC des périphériques déjà découverts
     private final HashMap<String, ScanResult> discoveredDevices = new HashMap<>();
 
+    // Déclarez un ensemble pour stocker les valeurs uniques des caractéristiques
+    private Set<String> uniqueValues = new HashSet<>();
     int transport = BluetoothDevice.TRANSPORT_LE; // Utilisation du transport BLE
     int phy = BluetoothDevice.PHY_LE_1M; // Utilisation du PHY LE à 1M
 
@@ -74,6 +78,7 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
     // Create a queue to store the UUIDs of the characteristics to be read
     LinkedList<UUID> readQueue;
     private boolean isScanning = false;
+    private boolean isReading = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -266,7 +271,23 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
         return bluetoothAdapter.getBluetoothLeScanner();
     }
 
+    // Ajoutez cette méthode à votre classe pour enregistrer les valeurs uniques dans le fichier
+    private void saveUniqueValuesToFile() {
+        for (String value : uniqueValues) {
+            // Récupérer les données de la caractéristique
+            String data = "Caractéristique : " + value;
+            // Appeler la méthode pour enregistrer les données dans un fichier
+            dataRecorder.saveDataToFile(Data_form_the_device, data);
+        }
+    }
 
+    // Ajoutez ce Runnable pour arrêter la lecture après 5 secondes
+    private Runnable stopReadingRunnable = new Runnable() {
+        @Override
+        public void run() {
+            isReading = false;
+        }
+    };
 
     /**
      * Espace Callback
@@ -346,10 +367,12 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
 
             // Appeler la méthode readNextCharacteristic pour lire la première caractéristique et lancez la lecture des autres caractéristiques.
             if (appPermission.checkBluetoothPermission()) {
-                gatt.readCharacteristic(BleExtensions.findCharacteristic(gatt, UUIDs.BATTERY_LEVEL_CHAR));
+                handler.postDelayed(stopReadingRunnable, 2000);
+                gatt.readCharacteristic(BleExtensions.findCharacteristic(gatt, UUIDs.OBJECT_NAME));
             } else {
                 appPermission.requestBluetoothPermission();
             }
+
         }
         @Override
         // Utiliser la table de correspondance dans la fonction onCharacteristicRead
@@ -367,10 +390,17 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
 
                         // Convertir la valeur hexadécimale en ASCII
                         String asciiValue = HexToAsciiConverter.hexToAscii(hexValue);
+
+                        // Ajoutez la valeur à l'ensemble des valeurs uniques
+                        uniqueValues.add(asciiValue);
+
+
+                        /***************
                         // Récupérer les données de la caractéristique
                         String data = characteristicName +", Valeur : " + asciiValue;
                         // Appeler la méthode pour enregistrer les données dans un fichier
                         dataRecorder.saveDataToFile(Data_form_the_device,data);
+                         ***************/
 
                     } else {
                         Log.e("BluetoothGattCallback", "Empty characteristic value for " + characteristicName + "!");
@@ -384,12 +414,21 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
                 Log.e("BluetoothGattCallback", "Unknown characteristic with UUID: " + uuid);
             }
 
+            Log.d("DataRecorder", "Valeurs uniques : " + uniqueValues);
+            Log.d("DataRecorder", String.valueOf(isReading));
+            if (isReading) {
+                readNextCharacteristic(gatt);
+            }
+            else{saveUniqueValuesToFile();}
+
+            /***************
             // After reading a characteristic, remove it from the queue and read the next one
-            readQueue.poll();
-            readNextCharacteristic(gatt);
+            //readQueue.poll();
+            //readNextCharacteristic(gatt);
+             ***************/
         }
         private void readNextCharacteristic(BluetoothGatt gatt) {
-            if (!readQueue.isEmpty()) {
+            if (!readQueue.isEmpty() && isReading) {
                 UUID charUuid = readQueue.peek();
                 BluetoothGattCharacteristic characteristic = BleExtensions.findCharacteristic(gatt, charUuid);
                 if (characteristic != null && BleExtensions.isReadable(characteristic)) {
@@ -399,7 +438,9 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
                         appPermission.requestBluetoothPermission();
                     }
                 } else {
-                    readQueue.poll(); // Remove the characteristic from the queue
+                    /***************
+                    //readQueue.poll(); // Remove the characteristic from the queue
+                     ***************/
                     readNextCharacteristic(gatt); // Try to read the next characteristic
                 }
             }
