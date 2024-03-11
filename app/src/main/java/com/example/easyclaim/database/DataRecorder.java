@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.example.easyclaim.R;
 import com.example.easyclaim.util.AppPermission;
+import com.example.easyclaim.util.NomenclatureDictionary;
+
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.RadioGroup;
@@ -16,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 // ENREGISTE LES DONNÉES DANS UN FICHIER TEXTE DANS LE DOSSIER INTERNE DE L'APPLICATION
@@ -118,7 +121,7 @@ public class DataRecorder {
         }
     }
 
-    public void Reformate_data_from_device(String fileName, TextView[] textViews) {
+    public void Reformate_data_from_device(String fileName, TextView[] textViews, NomenclatureDictionary nomenclatureDictionary) {
         Log.d("DataRecorder", "Reading data from file: " + fileName);
         File file = new File(getDirectoryPath(), fileName);
 
@@ -137,15 +140,15 @@ public class DataRecorder {
                 String value = parts[1];
                 Log.d("DataRecorder", "Label: " + label + ", Value: " + value);
 
+                // Récupérer le dictionnaire nomenclature
+                Map<String, String> nomenclature = nomenclatureDictionary.getNomenclature();
+
                 // Parcours de tous les TextViews
                 for (TextView textView : textViews) {
-                    String currentText = textView.getText().toString();
-                    Log.i("DataRecorder", "Tag: " + textView.getTag() + ", Label: " + label);
-                    Log.w("DataRecorder", "Current text: " + currentText);
+                    String currentName = activity.getResources().getResourceEntryName(textView.getId());
+                    Log.i("DataRecorder", "Name: " + currentName);
                     // Vérification si le tag correspond à la nomenclature actuelle
-                    if (currentText.startsWith(label) && !updatedTextViews.contains(textView.getTag())) {
-                        // Récupération du texte actuel du TextView
-                        Log.e("DataRecorder", "Current text: " + currentText);
+                    if (nomenclature.containsKey(label) && textView.getTag().equals(nomenclature.get(label)) && !updatedTextViews.contains(textView.getTag())) {
                         // Mise à jour du texte du TextView
                         String updatedText = textView.getTag() + " : " + value;
                         textView.setText(updatedText);
@@ -164,11 +167,7 @@ public class DataRecorder {
             e.printStackTrace();
         }
     }
-
-
-
-
-}
+    }
 
 
 
