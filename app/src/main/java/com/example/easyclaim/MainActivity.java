@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         How_to_use_EasyClaim.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            Intent intent = new Intent(MainActivity.this, Report_test.class);
             startActivity(intent);
         });
 

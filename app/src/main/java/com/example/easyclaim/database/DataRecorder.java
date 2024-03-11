@@ -3,11 +3,20 @@ package com.example.easyclaim.database;
 import android.app.Activity;
 import android.util.Log;
 
+import com.example.easyclaim.R;
 import com.example.easyclaim.util.AppPermission;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 // ENREGISTE LES DONNÉES DANS UN FICHIER TEXTE DANS LE DOSSIER INTERNE DE L'APPLICATION
 // EXAMPLE /storage/emulated/0/Android/data/com.example.testblueapp/files/Easyclaim/data_for_easyclaim.txt
@@ -68,6 +77,97 @@ public class DataRecorder {
             Log.i("DataRecorder", "Data file deleted.");
         }
     }
+
+    public void saveReportPage2(Activity activity) {
+        try {
+            // Assuming EditText and Spinner IDs from the layout file report2.xml
+            Spinner daySpinner = activity.findViewById(R.id.daySpinner);
+            Spinner monthSpinner = activity.findViewById(R.id.monthSpinner);
+            Spinner yearSpinner = activity.findViewById(R.id.yearSpinner);
+            Spinner hourSpinner = activity.findViewById(R.id.hourSpinner);
+            Spinner minuteSpinner = activity.findViewById(R.id.minuteSpinner);
+            EditText exactLocationEditText = activity.findViewById(R.id.exactLocationEditText);
+            RadioGroup injuryRadioGroup = activity.findViewById(R.id.injuryRadioGroup);
+            RadioGroup damageRadioGroup = activity.findViewById(R.id.damageRadioGroup);
+
+            // Retrieve the selected values
+            String day = daySpinner.getSelectedItem().toString();
+            String month = monthSpinner.getSelectedItem().toString();
+            String year = yearSpinner.getSelectedItem().toString();
+            String hour = hourSpinner.getSelectedItem().toString();
+            String minute = minuteSpinner.getSelectedItem().toString();
+            String exactLocation = exactLocationEditText.getText().toString();
+            int selectedInjuryId = injuryRadioGroup.getCheckedRadioButtonId();
+            int selectedDamageId = damageRadioGroup.getCheckedRadioButtonId();
+
+            String injury = selectedInjuryId == R.id.injuryYes ? "yes" : "no";
+            String damage = selectedDamageId == R.id.damageYes ? "yes" : "no";
+
+            // Use StringBuilder to create the string to save
+            String dataBuilder = "Accident_date: " + day + "/" + month + "/" + year + "\n" +
+                    "Hour_accident: " + hour + "h" + minute + "\n" +
+                    "Exact Location: " + exactLocation + "\n" +
+                    "Injury: " + injury + "\n" +
+                    "Damage: " + damage + "\n";
+
+            // Save the string to the file
+            saveDataToFile("report_page2_test.txt", dataBuilder);
+            Log.d("DataRecorder", "Report page 2 data saved.");
+        } catch (Exception e) {
+            Log.e("DataRecorder", "Error saving report page 2", e);
+        }
+    }
+
+    public void Reformate_data_from_device(String fileName, TextView[] textViews) {
+        Log.d("DataRecorder", "Reading data from file: " + fileName);
+        File file = new File(getDirectoryPath(), fileName);
+
+        // Créer un HashSet pour suivre les TextViews mis à jour
+        Set<String> updatedTextViews = new HashSet<>();
+
+        try {
+            Log.d("DataRecorder", "File path: " + file.getAbsolutePath());
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            Log.d("DataRecorder", "Reading lines from file");
+            while ((line = br.readLine()) != null) {
+                Log.d("DataRecorder", "Line: " + line);
+                String[] parts = line.split(": ");
+                String label = parts[0];
+                String value = parts[1];
+                Log.d("DataRecorder", "Label: " + label + ", Value: " + value);
+
+                // Parcours de tous les TextViews
+                for (TextView textView : textViews) {
+                    String currentText = textView.getText().toString();
+                    Log.i("DataRecorder", "Tag: " + textView.getTag() + ", Label: " + label);
+                    Log.w("DataRecorder", "Current text: " + currentText);
+                    // Vérification si le tag correspond à la nomenclature actuelle
+                    if (currentText.startsWith(label) && !updatedTextViews.contains(textView.getTag())) {
+                        // Récupération du texte actuel du TextView
+                        Log.e("DataRecorder", "Current text: " + currentText);
+                        // Mise à jour du texte du TextView
+                        String updatedText = textView.getTag() + " : " + value;
+                        textView.setText(updatedText);
+                        Log.v("DataRecorder", "Updated text: " + updatedText);
+                        // Ajouter le tag du TextView au HashSet
+                        updatedTextViews.add((String) textView.getTag());
+
+                        // Enregistrer les données dans le fichier
+                        saveDataToFile("Easyclaim_data_reformat.txt", updatedText);
+                        break;
+                    }
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 }
 
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Layout for accident circumstances -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Dynamic list of EditTexts for different circumstances fields can be added here -->
+            <!-- Example: Field for 'Circumstance A' -->
+            <EditText
+                android:id="@+id/circumstanceAEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=" circumstance A"
+                android:inputType="text"/>
+
+            <!-- More EditTexts for other circumstances -->
+
+            <!-- Button to submit the report -->
+            <Button
+                android:id="@+id/submitReportButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="submit report"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
