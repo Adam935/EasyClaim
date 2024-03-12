@@ -275,9 +275,8 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
     private void saveUniqueValuesToFile() {
         for (String value : uniqueValues) {
             // Récupérer les données de la caractéristique
-            String data = "Caractéristique : " + value;
             // Appeler la méthode pour enregistrer les données dans un fichier
-            dataRecorder.saveDataToFile(Data_form_the_device, data);
+            dataRecorder.saveDataToFile(Data_form_the_device, value);
         }
     }
 

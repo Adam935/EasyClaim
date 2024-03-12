@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Placeholder for the app logo -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:src="@drawable/easyclaimlogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="DSFSD"/>
+
+    <!-- User information frame -->
+    <RelativeLayout
+        android:id="@+id/userInfoFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoImageView"
+        android:layout_marginTop="20dp"
+        android:padding="16dp">
+        <!--android:background="@drawable/frame_background"  Custom drawable for frame background -->
+
+        <TextView
+            android:id="@+id/insuranceCompanyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O: MAIF" />
+
+        <TextView
+            android:id="@+id/licensePlateNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/insuranceCompanyTextView"
+            android:text="LP: AB 123 CD" />
+
+        <TextView
+            android:id="@+id/insuranceNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/licensePlateNumberTextView"
+            android:text="N: 123456789" />
+
+        <TextView
+            android:id="@+id/insuranceGreenCardNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/insuranceNumberTextView"
+            android:text="V: F75Q-792545" />
+
+        <TextView
+            android:id="@+id/insuranceGreenCardStartDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/insuranceGreenCardNumberTextView"
+            android:text="L: 12/12/2023" />
+
+        <TextView
+            android:id="@+id/insuranceGreenCardEndDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/insuranceGreenCardStartDateTextView"
+            android:text="K: 31/12/2024" />
+
+        <TextView
+            android:id="@+id/vehicleDamageLocationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/insuranceGreenCardEndDateTextView"
+            android:text="W: Avant droit" />
+
+        <TextView
+            android:id="@+id/ownerFirstNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vehicleDamageLocationTextView"
+            android:text="F: Adam" />
+
+        <TextView
+            android:id="@+id/ownerLastNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ownerFirstNameTextView"
+            android:text="S: Bessaa" />
+
+        <TextView
+            android:id="@+id/ownerAddressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ownerLastNameTextView"
+            android:text="A: 9 Boulevard du montparnasse 75006" />
+
+        <TextView
+            android:id="@+id/ownerPhoneNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ownerAddressTextView"
+            android:text="P: 0695070402" />
+
+        <!-- Button to edit the information -->
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/ownerPhoneNumberTextView"
+            android:text="Edit" />
+    </RelativeLayout>
+
+    <!-- Video playback controls
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userInfoFrame"
+        android:layout_marginTop="20dp" />
+-->
+    <!-- Button to complete the report and go to the next page -->
+    <Button
+        android:id="@+id/completeReportButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userInfoFrame"
+        android:layout_marginTop="20dp"
+        android:text="complete report" />
+</RelativeLayout>

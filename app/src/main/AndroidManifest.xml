@@ -37,6 +37,12 @@
         android:theme="@style/Theme.EasyClaim"
         tools:targetApi="31">
         <activity
+            android:name=".Report_test"
+            android:exported="false" />
+        <activity
+            android:name=".Report_test2"
+            android:exported="false" />
+        <activity
             android:name=".Connection_to_the_device_BLE"
             android:exported="false" />
         <activity

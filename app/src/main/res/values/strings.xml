@@ -6,5 +6,11 @@
     <string name="select_device">3. Select the device on your phone EasyClaim_IOT</string>
     <string name="switch_label">Device Switch</string>
     <string name="logo_description">EasyClaim Logo</string>
-    <!-- Add all other strings here -->
+    <string name="day_prompt">Jour</string>
+    <string name="month_prompt">Mois</string>
+    <string name="year_prompt">Année</string>
+    <string name="hour_prompt">Heure</string>
+    <string name="minute_prompt">Minute</string>
+    <string name="ampm_prompt">AM/PM</string>
+
 </resources>
