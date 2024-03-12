@@ -12,5 +12,12 @@
     <string name="hour_prompt">Heure</string>
     <string name="minute_prompt">Minute</string>
     <string name="ampm_prompt">AM/PM</string>
+    <string name="you_just_had_an_accident_click_below_to_get_assistance_doing_the_report">You just had an accident ? Click below to get assistance doing the report.</string>
+    <string name="easyclaim">EASYCLAIM</string>
+    <string name="connection_to_the_device">Connection to the device</string>
+    <string name="first_time_with_easyclaim">First time with EasyClaim ?</string>
+    <string name="learn_how_to_use_easyclaim">Learn how to use EasyClaim !</string>
+    <string name="configure_the_device">Configure the device</string>
+    <string name="having_trouble_confirguring_the_device">Having trouble confirguring the device ?</string>
 
 </resources>
