@@ -4,7 +4,8 @@
     android:width="345dp"
     android:height="155dp"
     android:viewportWidth="345"
-    android:viewportHeight="154">
+    android:viewportHeight="154"
+    tools:ignore="VectorRaster">
   <path
       android:pathData="M40,6.17L305,6.17A30,30 0,0 1,335 36.17L335,110A30,30 0,0 1,305 140L40,140A30,30 0,0 1,10 110L10,36.17A30,30 0,0 1,40 6.17z">
     <aapt:attr name="android:fillColor">
