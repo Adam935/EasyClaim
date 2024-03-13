@@ -21,77 +21,179 @@
         android:layout_below="@id/logoImageView"
         android:layout_marginTop="20dp"
         android:padding="16dp">
-        <!--android:background="@drawable/frame_background"  Custom drawable for frame background -->
 
-        <TextView
-            android:id="@+id/insuranceCompanyTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nom de l'assurance"
-            android:layout_marginBottom="10dp" />
+        <RelativeLayout
+            android:id="@+id/insuranceCompanyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/licensePlateNumberTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/insuranceCompanyTextView"
-            android:text="Plaque d'immatriculation"
-            android:layout_marginBottom="10dp" />
+            <TextView
+                android:id="@+id/insuranceCompanyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom de l'assurance"
+                android:layout_marginBottom="10dp" />
 
-        <TextView
-            android:id="@+id/insuranceNumberTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/licensePlateNumberTextView"
-            android:text="Numero d'assurance"
-            android:layout_marginBottom="10dp" />
+            <EditText
+                android:id="@+id/insuranceCompanyEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/insuranceGreenCardNumberTextView"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/licensePlateNumberLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/insuranceNumberTextView"
-            android:text="Vitesse du choc"
-            android:layout_marginBottom="10dp" />
+            android:layout_below="@id/insuranceCompanyLayout">
 
-        <TextView
-            android:id="@+id/insuranceGreenCardStartDateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/insuranceGreenCardNumberTextView"
-            android:text="Adresse mail de l'assurance"
-            android:layout_marginBottom="10dp" />
+            <TextView
+                android:id="@+id/licensePlateNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plaque d'immatriculation"
+                android:layout_marginBottom="10dp" />
 
-        <TextView
-            android:id="@+id/insuranceGreenCardEndDateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editButton"
-            android:layout_marginBottom="10dp" />
+            <EditText
+                android:id="@+id/licensePlateNumberEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/vehicleDamageLocationTextView"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/insuranceNumberLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/insuranceGreenCardStartDateTextView"
-            android:text="Localisation du choc sur le vehicule"
-            android:layout_marginBottom="10dp" />
+            android:layout_below="@id/licensePlateNumberLayout">
 
-        <TextView
-            android:id="@+id/ownerFirstNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/vehicleDamageLocationTextView"
-            android:text="Prenom de l'assurer"
-            android:layout_marginBottom="10dp" />
+            <TextView
+                android:id="@+id/insuranceNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Numero d'assurer"
+                android:layout_marginBottom="10dp" />
 
-        <TextView
-            android:id="@+id/ownerLastNameTextView"
-            android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/insuranceNumberEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/insuranceGreenCardNumberLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ownerFirstNameTextView"
-            android:text="Nom de l'assurer"
-            android:layout_marginBottom="10dp" />
+            android:layout_below="@id/insuranceNumberLayout">
+
+            <TextView
+                android:id="@+id/insuranceGreenCardNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vitesse du choc"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/insuranceGreenCardNumberEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/insuranceGreenCardStartDateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/insuranceGreenCardNumberLayout">
+
+            <TextView
+                android:id="@+id/insuranceGreenCardStartDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adresse mail de l'assureur"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/insuranceGreenCardStartDateEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/insuranceGreenCardEndDateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editButton">
+
+            <TextView
+                android:id="@+id/insuranceGreenCardEndDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/vehicleDamageLocationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/insuranceGreenCardStartDateLayout">
+
+            <TextView
+                android:id="@+id/vehicleDamageLocationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Localisation du choc sur le vehicule"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/vehicleDamageLocationEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ownerFirstNameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vehicleDamageLocationLayout">
+
+            <TextView
+                android:id="@+id/ownerFirstNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prenom"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/ownerFirstNameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ownerLastNameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ownerFirstNameLayout">
+
+            <TextView
+                android:id="@+id/ownerLastNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/ownerLastNameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
 
         <!-- Button to edit the information -->
         <Button
@@ -99,18 +201,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/ownerLastNameTextView"
+            android:layout_below="@id/ownerLastNameLayout"
             android:text="Edit" />
     </RelativeLayout>
 
-    <!-- Video playback controls
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userInfoFrame"
-        android:layout_marginTop="20dp" />
--->
     <!-- Button to complete the report and go to the next page -->
     <Button
         android:id="@+id/completeReportButton"

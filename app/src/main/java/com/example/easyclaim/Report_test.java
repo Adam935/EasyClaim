@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,7 +31,7 @@ public class Report_test extends AppCompatActivity {
         // Initialize NomenclatureDictionary
         nomenclatureDictionary = new NomenclatureDictionary();
 
-        // Initialize TextViews
+// Initialize TextViews
         TextView insuranceCompanyTextView = findViewById(R.id.insuranceCompanyTextView);
         insuranceCompanyTextView.setTag("Nom de l'assurance");
         TextView licensePlateNumberTextView = findViewById(R.id.licensePlateNumberTextView);
@@ -49,24 +50,18 @@ public class Report_test extends AppCompatActivity {
         ownerFirstNameTextView.setTag("Prenom");
         TextView ownerLastNameTextView = findViewById(R.id.ownerLastNameTextView);
         ownerLastNameTextView.setTag("Nom");
-        //TextView ownerAddressTextView = findViewById(R.id.ownerAddressTextView);
-        //ownerAddressTextView.setTag("Adresse du proprietaire");
-        //TextView ownerPhoneNumberTextView = findViewById(R.id.ownerPhoneNumberTextView);
-        //ownerPhoneNumberTextView.setTag("numero de telephone");
 
-        // Liste des TextViews à remplir
+// Liste des TextViews à remplir
         TextView[] textViews = {
                 insuranceCompanyTextView,
                 licensePlateNumberTextView,
                 insuranceNumberTextView,
                 insuranceGreenCardNumberTextView,
                 insuranceGreenCardStartDateTextView,
-                insuranceGreenCardEndDateTextView,
                 vehicleDamageLocationTextView,
                 ownerFirstNameTextView,
                 ownerLastNameTextView,
-                //ownerAddressTextView,
-                //ownerPhoneNumberTextView
+                insuranceGreenCardEndDateTextView
         };
 
 
@@ -74,6 +69,75 @@ public class Report_test extends AppCompatActivity {
         dataRecorder.clearData("Easyclaim_data_reformat.txt");
 
         dataRecorder.Reformate_data_from_device("data_for_easyclaim_for_test.txt", textViews, nomenclatureDictionary);
+
+// Initialize EditTexts
+        EditText insuranceCompanyEditText = findViewById(R.id.insuranceCompanyEditText);
+        EditText licensePlateNumberEditText = findViewById(R.id.licensePlateNumberEditText);
+        EditText insuranceNumberEditText = findViewById(R.id.insuranceNumberEditText);
+        EditText insuranceGreenCardNumberEditText = findViewById(R.id.insuranceGreenCardNumberEditText);
+        EditText insuranceGreenCardStartDateEditText = findViewById(R.id.insuranceGreenCardStartDateEditText);
+        EditText vehicleDamageLocationEditText = findViewById(R.id.vehicleDamageLocationEditText);
+        EditText ownerFirstNameEditText = findViewById(R.id.ownerFirstNameEditText);
+        EditText ownerLastNameEditText = findViewById(R.id.ownerLastNameEditText);
+
+        EditText[] editTexts = {
+                insuranceCompanyEditText,
+                licensePlateNumberEditText,
+                insuranceNumberEditText,
+                insuranceGreenCardNumberEditText,
+                insuranceGreenCardStartDateEditText,
+                vehicleDamageLocationEditText,
+                ownerFirstNameEditText,
+                ownerLastNameEditText
+        };
+
+        Button editButton = findViewById(R.id.editButton);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            boolean isEditing = false;
+
+            @Override
+            public void onClick(View v) {
+                if (!isEditing) {
+                    // Convert TextViews to EditTexts
+                    for (int i = 0; i < textViews.length; i++) {
+                        if (i < editTexts.length && !textViews[i].getTag().equals("DJ")) {
+                            String[] parts = textViews[i].getText().toString().split(" : ");
+                            String value = parts.length > 1 ? parts[1] : "";
+                            editTexts[i].setText(value);
+                            editTexts[i].setVisibility(View.VISIBLE);
+                        }
+                        if (!textViews[i].getTag().equals("DJ")) {
+                            textViews[i].setVisibility(View.GONE);
+                        }
+                    }
+                    editButton.setText("Save");
+                } else {
+                    // Convert EditTexts back to TextViews
+                    for (int i = 0; i < textViews.length; i++) {
+                        if (i < editTexts.length && !textViews[i].getTag().equals("DJ")) {
+                            String label = textViews[i].getTag().toString();
+                            String value = editTexts[i].getText().toString();
+                            textViews[i].setText(label + " : " + value);
+                            editTexts[i].setVisibility(View.GONE);
+                        }
+                        if (!textViews[i].getTag().equals("DJ")) {
+                            textViews[i].setVisibility(View.VISIBLE);
+                        }
+                    }
+                    editButton.setText("Edit");
+
+                    // Clear and rewrite the data in the file
+                    dataRecorder.clearData("Easyclaim_data_reformat.txt");
+                    for (TextView textView : textViews) {
+                        String updatedText = textView.getText().toString();
+                        dataRecorder.saveDataToFile("Easyclaim_data_reformat.txt", updatedText);
+                    }
+                }
+                isEditing = !isEditing;
+            }
+        });
+
+
 
 
         Button completeReportButton = findViewById(R.id.completeReportButton);
