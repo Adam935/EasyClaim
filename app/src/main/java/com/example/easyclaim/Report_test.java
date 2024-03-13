@@ -34,9 +34,9 @@ public class Report_test extends AppCompatActivity {
         TextView insuranceCompanyTextView = findViewById(R.id.insuranceCompanyTextView);
         insuranceCompanyTextView.setTag("Nom de l'assurance");
         TextView licensePlateNumberTextView = findViewById(R.id.licensePlateNumberTextView);
-        licensePlateNumberTextView.setTag("plaque d'immatriculation");
+        licensePlateNumberTextView.setTag("Plaque d'immatriculation");
         TextView insuranceNumberTextView = findViewById(R.id.insuranceNumberTextView);
-        insuranceNumberTextView.setTag("numero d'assurer");
+        insuranceNumberTextView.setTag("Numero d'assurer");
         TextView insuranceGreenCardNumberTextView = findViewById(R.id.insuranceGreenCardNumberTextView);
         insuranceGreenCardNumberTextView.setTag("Vitesse du choc");
         TextView insuranceGreenCardStartDateTextView = findViewById(R.id.insuranceGreenCardStartDateTextView);
@@ -44,7 +44,7 @@ public class Report_test extends AppCompatActivity {
         TextView insuranceGreenCardEndDateTextView = findViewById(R.id.insuranceGreenCardEndDateTextView);
         insuranceGreenCardEndDateTextView.setTag("DJ");
         TextView vehicleDamageLocationTextView = findViewById(R.id.vehicleDamageLocationTextView);
-        vehicleDamageLocationTextView.setTag("localisation du choque sur le vehicule");
+        vehicleDamageLocationTextView.setTag("Localisation du choc sur le vehicule");
         TextView ownerFirstNameTextView = findViewById(R.id.ownerFirstNameTextView);
         ownerFirstNameTextView.setTag("Prenom");
         TextView ownerLastNameTextView = findViewById(R.id.ownerLastNameTextView);

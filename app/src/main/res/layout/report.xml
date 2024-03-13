@@ -27,77 +27,71 @@
             android:id="@+id/insuranceCompanyTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="O: MAIF" />
+            android:text="Nom de l'assurance"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/licensePlateNumberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/insuranceCompanyTextView"
-            android:text="LP: AB 123 CD" />
+            android:text="Plaque d'immatriculation"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/insuranceNumberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/licensePlateNumberTextView"
-            android:text="N: 123456789" />
+            android:text="Numero d'assurance"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/insuranceGreenCardNumberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/insuranceNumberTextView"
-            android:text="V: F75Q-792545" />
+            android:text="Vitesse du choc"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/insuranceGreenCardStartDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/insuranceGreenCardNumberTextView"
-            android:text="L: 12/12/2023" />
+            android:text="Adresse mail de l'assurance"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/insuranceGreenCardEndDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/insuranceGreenCardStartDateTextView"
-            android:text="K: 31/12/2024" />
+            android:layout_below="@id/editButton"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/vehicleDamageLocationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/insuranceGreenCardEndDateTextView"
-            android:text="W: Avant droit" />
+            android:layout_below="@id/insuranceGreenCardStartDateTextView"
+            android:text="Localisation du choc sur le vehicule"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/ownerFirstNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/vehicleDamageLocationTextView"
-            android:text="F: Adam" />
+            android:text="Prenom de l'assurer"
+            android:layout_marginBottom="10dp" />
 
         <TextView
             android:id="@+id/ownerLastNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ownerFirstNameTextView"
-            android:text="S: Bessaa" />
-
-        <TextView
-            android:id="@+id/ownerAddressTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ownerLastNameTextView"
-            android:text="A: 9 Boulevard du montparnasse 75006" />
-
-        <TextView
-            android:id="@+id/ownerPhoneNumberTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ownerAddressTextView"
-            android:text="P: 0695070402" />
+            android:text="Nom de l'assurer"
+            android:layout_marginBottom="10dp" />
 
         <!-- Button to edit the information -->
         <Button
@@ -105,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/ownerPhoneNumberTextView"
+            android:layout_below="@id/ownerLastNameTextView"
             android:text="Edit" />
     </RelativeLayout>
 
