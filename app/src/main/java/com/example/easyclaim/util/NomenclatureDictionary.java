@@ -15,9 +15,9 @@ public class NomenclatureDictionary {
     private void initializeNomenclature() {
         nomenclature = new HashMap<>();
         nomenclature.put("O", "Nom de l'assurance");
-        nomenclature.put("LP", "plaque d'immatriculation");
-        nomenclature.put("N", "numero d'assurer");
-        nomenclature.put("W", "localisation du choque sur le vehicule");
+        nomenclature.put("LP", "Plaque d'immatriculation");
+        nomenclature.put("N", "Numero d'assurer");
+        nomenclature.put("W", "Localisation du choc sur le vehicule");
         nomenclature.put("V", "Vitesse du choc");
         nomenclature.put("F", "Prenom");
         nomenclature.put("S", "Nom");
@@ -29,9 +29,9 @@ public class NomenclatureDictionary {
     private void initializeNomenclatureBis() {
         nomenclature_bis = new HashMap<>();
         nomenclature_bis.put("Nom de l'assurance", "insuranceCompanyTextView");
-        nomenclature_bis.put("plaque d'immatriculation", "licensePlateNumberTextView");
-        nomenclature_bis.put("numero d'assurer", "insuranceNumberTextView");
-        nomenclature_bis.put("localisation du choque sur le vehicule", "vehicleDamageLocationTextView");
+        nomenclature_bis.put("Plaque d'immatriculation", "licensePlateNumberTextView");
+        nomenclature_bis.put("Numero d'assurer", "insuranceNumberTextView");
+        nomenclature_bis.put("Localisation du choc sur le vehicule", "vehicleDamageLocationTextView");
         nomenclature_bis.put("Vitesse du choc", "insuranceGreenCardNumberTextView");
         nomenclature_bis.put("Prenom","ownerFirstNameTextView");
         nomenclature_bis.put("Nom","ownerLastNameTextView");

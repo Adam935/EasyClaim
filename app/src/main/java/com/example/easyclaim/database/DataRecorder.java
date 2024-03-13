@@ -19,6 +19,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 // ENREGISTE LES DONNÉES DANS UN FICHIER TEXTE DANS LE DOSSIER INTERNE DE L'APPLICATION
@@ -125,14 +126,20 @@ public class DataRecorder {
         Log.d("DataRecorder", "Reading data from file: " + fileName);
         File file = new File(getDirectoryPath(), fileName);
 
-        // Créer un HashSet pour suivre les TextViews mis à jour
+        // Create a HashSet to track updated TextViews
         Set<String> updatedTextViews = new HashSet<>();
+
+        String emailStart = "";
+        String emailEnd = "";
+        String ChocSpeed = "";
 
         try {
             Log.d("DataRecorder", "File path: " + file.getAbsolutePath());
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
             Log.d("DataRecorder", "Reading lines from file");
+            // Retrieve the nomenclature dictionary
+            Map<String, String> nomenclature = nomenclatureDictionary.getNomenclature();
             while ((line = br.readLine()) != null) {
                 Log.d("DataRecorder", "Line: " + line);
                 String[] parts = line.split(": ");
@@ -140,28 +147,53 @@ public class DataRecorder {
                 String value = parts[1];
                 Log.d("DataRecorder", "Label: " + label + ", Value: " + value);
 
-                // Récupérer le dictionnaire nomenclature
-                Map<String, String> nomenclature = nomenclatureDictionary.getNomenclature();
-
-                // Parcours de tous les TextViews
+                // Loop through all TextViews
                 for (TextView textView : textViews) {
                     String currentName = activity.getResources().getResourceEntryName(textView.getId());
-                    Log.i("DataRecorder", "Name: " + currentName);
-                    // Vérification si le tag correspond à la nomenclature actuelle
-                    if (nomenclature.containsKey(label) && textView.getTag().equals(nomenclature.get(label)) && !updatedTextViews.contains(textView.getTag())) {
-                        // Mise à jour du texte du TextView
-                        String updatedText = textView.getTag() + " : " + value;
-                        textView.setText(updatedText);
-                        Log.v("DataRecorder", "Updated text: " + updatedText);
-                        // Ajouter le tag du TextView au HashSet
-                        updatedTextViews.add((String) textView.getTag());
-
-                        // Enregistrer les données dans le fichier
-                        saveDataToFile("Easyclaim_data_reformat.txt", updatedText);
-                        break;
+                    if (nomenclature.containsKey(label) && textView.getTag().equals(nomenclature.get(label))) {
+                        if (currentName.equals("insuranceGreenCardStartDateTextView")) {
+                            emailStart = value;
+                            Log.d("test", "Email start: " + emailStart);
+                        } else if (currentName.equals("insuranceGreenCardEndDateTextView")) {
+                            emailEnd = value;
+                            Log.e("test", "Email end: " + emailEnd);
+                        } else if (currentName.equals("insuranceGreenCardNumberTextView")) {
+                            ChocSpeed = value;
+                            Log.e("test", "Choc speed: " + ChocSpeed);
+                        } else if (!updatedTextViews.contains(textView.getTag())) {
+                            String updatedText = textView.getTag() + " : " + value;
+                            textView.setText(updatedText);
+                            Log.v("DataRecorder", "Updated text: " + updatedText);
+                            updatedTextViews.add((String) textView.getTag());
+                            saveDataToFile("Easyclaim_data_reformat.txt", updatedText);
+                        }
                     }
                 }
             }
+
+            if (!emailStart.isEmpty() && !emailEnd.isEmpty()) {
+                Log.v("test", "Email start: " + emailStart + ", Email end: " + emailEnd);
+                String email = emailStart + "@" + emailEnd;
+                // Retrieve the nomenclature dictionary
+                Map<String, String> nomenclature_bis = nomenclatureDictionary.getNomenclatureBis();
+                for (TextView textView : textViews) {
+                    String currentName = activity.getResources().getResourceEntryName(textView.getId());
+                    if (currentName.equals(nomenclature_bis.get("Adresse mail de l'assureur")) && !updatedTextViews.contains(textView.getTag())) {
+                        String updatedText = textView.getTag() + " : " + email;
+                        textView.setText(updatedText);
+                        Log.v("DataRecorder", "Updated text: " + updatedText);
+                        updatedTextViews.add((String) textView.getTag());
+                        saveDataToFile("Easyclaim_data_reformat.txt", updatedText);
+                    } else if (currentName.equals(nomenclature_bis.get("Vitesse du choc")) && !updatedTextViews.contains(textView.getTag())) {
+                        String updatedText = textView.getTag() + " : " + ChocSpeed + " km/h";
+                        textView.setText(updatedText);
+                        Log.v("euh", "Updated text: " + updatedText);
+                        updatedTextViews.add((String) textView.getTag());
+                        saveDataToFile("Easyclaim_data_reformat.txt", updatedText);
+                    }
+                }
+            }
+
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
