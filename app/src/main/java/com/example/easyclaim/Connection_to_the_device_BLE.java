@@ -23,8 +23,10 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
+
 import java.util.Set;
 import java.util.HashSet;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -79,7 +81,20 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
     LinkedList<UUID> readQueue;
     private boolean isScanning = false;
     private boolean isReading = true;
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (bluetoothGatt != null) {
+            // Check if the necessary Bluetooth permissions are granted
+            while (!appPermission.checkBluetoothPermission()) {
+                appPermission.requestBluetoothPermission();
+            }
+            if (appPermission.checkBluetoothPermission()) {
+                bluetoothGatt.close();
+                bluetoothGatt = null;
+            }
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -278,6 +293,10 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
             // Appeler la méthode pour enregistrer les données dans un fichier
             dataRecorder.saveDataToFile(Data_form_the_device, value);
         }
+        // After saving the data, finish the current activity and start Report_page1 activity
+        finish();
+        Intent intent = new Intent(Connection_to_the_device_BLE.this, Report_page1.class);
+        startActivity(intent);
     }
 
     // Ajoutez ce Runnable pour arrêter la lecture après 5 secondes

@@ -37,10 +37,22 @@
         android:theme="@style/Theme.EasyClaim"
         tools:targetApi="31">
         <activity
-            android:name=".Report_test"
+            android:name=".SignatureActivity"
             android:exported="false" />
         <activity
-            android:name=".Report_test2"
+            android:name=".Report_page1"
+            android:exported="false" />
+        <activity
+            android:name=".Report_page2"
+            android:exported="false" />
+        <activity
+            android:name=".Report_page3"
+            android:exported="false" />
+        <activity
+            android:name=".Report_page4"
+            android:exported="false" />
+        <activity
+            android:name=".Report_page5"
             android:exported="false" />
         <activity
             android:name=".Connection_to_the_device_BLE"
@@ -63,6 +75,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.easyclaim.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider" />
+        </provider>
     </application>
 
 </manifest>

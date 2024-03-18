@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Layout for accident circumstances -->
-    <ScrollView
+    <TextView
+        android:id="@+id/textViewTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demande d'information au conducteur du véhicule B"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"/>
+
+    <EditText
+        android:id="@+id/editNomAssurance"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTest"
+        android:hint="Nom de l'assurance"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+    <EditText
+        android:id="@+id/editNumeroContrat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editNomAssurance"
+        android:hint="Numéro de d'assurance"/>
 
-            <!-- Dynamic list of EditTexts for different circumstances fields can be added here -->
-            <!-- Example: Field for 'Circumstance A' -->
-            <EditText
-                android:id="@+id/circumstanceAEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint=" circumstance A"
-                android:inputType="text"/>
+    <EditText
+        android:id="@+id/editImmatriculation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editNumeroContrat"
+        android:hint="Immatriculation"/>
 
-            <!-- More EditTexts for other circumstances -->
+    <EditText
+        android:id="@+id/editMailAssureur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editImmatriculation"
+        android:hint="Adresse Mail de l'assureur"/>
 
-            <!-- Button to submit the report -->
-            <Button
-                android:id="@+id/submitReportButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="submit report"
-                android:layout_marginTop="20dp"/>
-        </LinearLayout>
-    </ScrollView>
+    <EditText
+        android:id="@+id/editMailProprietaire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editMailAssureur"
+        android:hint="Adresse Mail du propriétaire de la voiture"/>
+
+    <Button
+        android:id="@+id/buttonContinuer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editMailProprietaire"
+        android:text="Continuer le report"
+        android:layout_marginTop="16dp"/>
 </RelativeLayout>

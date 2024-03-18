@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- En-tête -->
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CIRCONSTANCES"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewSubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Circumstances"
+        android:textSize="14sp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/textViewHeader"
+        android:layout_marginTop="8dp"/>
+
+    <!-- LinearLayout pour chaque paire CheckBox-TextView -->
+    <LinearLayout
+        android:id="@+id/linearLayoutCircumstance1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/textViewSubHeader"
+        android:layout_marginTop="16dp">
+
+        <!-- CheckBox pour Véhicule A -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleA1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView pour la circonstance -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Leaving a parking lot / opening the car door"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+
+        <!-- CheckBox pour Véhicule B -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleB1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- LinearLayout pour la deuxième paire CheckBox-TextView -->
+    <LinearLayout
+        android:id="@+id/linearLayoutCircumstance2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearLayoutCircumstance1"
+        android:layout_marginTop="16dp">
+
+        <!-- CheckBox pour Véhicule A -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleA2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView pour la circonstance -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Took a parking space"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+
+        <!-- CheckBox pour Véhicule B -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleB2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- LinearLayout pour la troisième paire CheckBox-TextView -->
+    <LinearLayout
+        android:id="@+id/linearLayoutCircumstance3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearLayoutCircumstance2"
+        android:layout_marginTop="16dp">
+
+        <!-- CheckBox pour Véhicule A -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleA3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView pour la circonstance -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Coming out of a parking lot, a private place"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+
+        <!-- CheckBox pour Véhicule B -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleB3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- LinearLayout pour la quatrième paire CheckBox-TextView -->
+    <LinearLayout
+        android:id="@+id/linearLayoutCircumstance4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearLayoutCircumstance3"
+        android:layout_marginTop="16dp">
+
+        <!-- CheckBox pour Véhicule A -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleA4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView pour la circonstance -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Rear-end collision, driving in the same direction and in the same lane"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+
+        <!-- CheckBox pour Véhicule B -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleB4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- LinearLayout pour la cinquième paire CheckBox-TextView -->
+    <LinearLayout
+        android:id="@+id/linearLayoutCircumstance5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearLayoutCircumstance4"
+        android:layout_marginTop="16dp">
+
+        <!-- CheckBox pour Véhicule A -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleA5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView pour la circonstance -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Step back"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+
+        <!-- CheckBox pour Véhicule B -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleB5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- LinearLayout pour la sixième paire CheckBox-TextView -->
+    <LinearLayout
+        android:id="@+id/linearLayoutCircumstance6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearLayoutCircumstance5"
+        android:layout_marginTop="16dp">
+
+        <!-- CheckBox pour Véhicule A -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleA6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView pour la circonstance -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Failed to observe a right-of-way signal or a red light"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+
+        <!-- CheckBox pour Véhicule B -->
+        <CheckBox
+            android:id="@+id/checkBoxVehicleB6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- Vous pouvez ajouter d'autres paires LinearLayout pour chaque circonstance supplémentaire -->
+
+    <!-- Bouton de fin du rapport -->
+    <Button
+        android:id="@+id/buttonEndReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutCircumstance6"
+        android:layout_marginTop="16dp"
+        android:text="Fin du rapport" />
+
+</RelativeLayout>

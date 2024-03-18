@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.example.easyclaim.view.SpinnerHelper;
 import com.example.easyclaim.database.DataRecorder;
 
-public class Report_test2 extends AppCompatActivity {
+public class Report_page2 extends AppCompatActivity {
     private DataRecorder dataRecorder;
 
     @Override
@@ -26,7 +26,7 @@ public class Report_test2 extends AppCompatActivity {
             dataRecorder.clearData("report_page2_test.txt"); // This line is missing in the original code
             // Save the report
             dataRecorder.saveReportPage2(this);
-            Intent intent = new Intent(Report_test2.this, MainActivity.class);
+            Intent intent = new Intent(Report_page2.this, Report_page3.class);
             startActivity(intent);
         });
 
