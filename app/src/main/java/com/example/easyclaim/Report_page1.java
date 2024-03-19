@@ -11,12 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.easyclaim.database.DataRecorder;
 import com.example.easyclaim.util.NomenclatureDictionary;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-
-public class Report_test extends AppCompatActivity {
+public class Report_page1 extends AppCompatActivity {
     private DataRecorder dataRecorder;
     private NomenclatureDictionary nomenclatureDictionary;
 
@@ -33,23 +28,23 @@ public class Report_test extends AppCompatActivity {
 
 // Initialize TextViews
         TextView insuranceCompanyTextView = findViewById(R.id.insuranceCompanyTextView);
-        insuranceCompanyTextView.setTag("Nom de l'assurance");
+        insuranceCompanyTextView.setTag("Name of insurance company");
         TextView licensePlateNumberTextView = findViewById(R.id.licensePlateNumberTextView);
-        licensePlateNumberTextView.setTag("Plaque d'immatriculation");
+        licensePlateNumberTextView.setTag("Immatriculation number");
         TextView insuranceNumberTextView = findViewById(R.id.insuranceNumberTextView);
-        insuranceNumberTextView.setTag("Numero d'assurer");
+        insuranceNumberTextView.setTag("Insurance number");
         TextView insuranceGreenCardNumberTextView = findViewById(R.id.insuranceGreenCardNumberTextView);
-        insuranceGreenCardNumberTextView.setTag("Vitesse du choc");
+        insuranceGreenCardNumberTextView.setTag("Shock speed");
         TextView insuranceGreenCardStartDateTextView = findViewById(R.id.insuranceGreenCardStartDateTextView);
-        insuranceGreenCardStartDateTextView.setTag("Adresse mail de l'assureur");
+        insuranceGreenCardStartDateTextView.setTag("Insurer's e-mail address");
         TextView insuranceGreenCardEndDateTextView = findViewById(R.id.insuranceGreenCardEndDateTextView);
         insuranceGreenCardEndDateTextView.setTag("DJ");
         TextView vehicleDamageLocationTextView = findViewById(R.id.vehicleDamageLocationTextView);
-        vehicleDamageLocationTextView.setTag("Localisation du choc sur le vehicule");
+        vehicleDamageLocationTextView.setTag("Location of impact on the vehicle");
         TextView ownerFirstNameTextView = findViewById(R.id.ownerFirstNameTextView);
-        ownerFirstNameTextView.setTag("Prenom");
+        ownerFirstNameTextView.setTag("First name");
         TextView ownerLastNameTextView = findViewById(R.id.ownerLastNameTextView);
-        ownerLastNameTextView.setTag("Nom");
+        ownerLastNameTextView.setTag("last name");
 
 // Liste des TextViews à remplir
         TextView[] textViews = {
@@ -145,7 +140,7 @@ public class Report_test extends AppCompatActivity {
         completeReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Report_test.this, Report_test2.class);
+                Intent intent = new Intent(Report_page1.this, Report_page2.class);
                 startActivity(intent);
             }
         });
