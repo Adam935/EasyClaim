@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     android:padding="16dp">
 
     <!-- Date and Time Section -->
@@ -16,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date de l'accident"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
             android:textStyle="bold"/>
 
         <LinearLayout
@@ -50,7 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Heure"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
             android:textStyle="bold"/>
 
         <LinearLayout
@@ -112,7 +115,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Blessures"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
             android:textStyle="bold"/>
 
         <RadioGroup
@@ -145,7 +149,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Dommages"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
             android:textStyle="bold"/>
 
         <RadioGroup
@@ -179,7 +184,8 @@
             android:text="Continuer"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:textColor="#FFFFFF"
+            android:background="@drawable/button_configure_background"
+            android:textColor="@color/white"
             android:textSize="18sp"/>
     </LinearLayout>
 </RelativeLayout>
