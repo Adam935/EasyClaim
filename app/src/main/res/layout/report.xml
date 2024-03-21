@@ -2,16 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     android:padding="16dp">
 
     <!-- Placeholder for the app logo -->
     <ImageView
         android:id="@+id/logoImageView"
-        android:src="@drawable/easyclaimlogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="267dp"
+        android:layout_height="153dp"
         android:layout_centerHorizontal="true"
-        android:contentDescription="DSFSD"/>
+        android:contentDescription="DSFSD"
+        android:src="@drawable/logo_easyclaim" />
 
     <!-- User information frame -->
     <RelativeLayout
@@ -32,12 +33,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name of insurance company"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/insuranceCompanyEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -52,12 +55,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Immatriculation number"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/licensePlateNumberEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -72,12 +77,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Insurance number"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/insuranceNumberEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -92,12 +99,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shock speed"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/insuranceGreenCardNumberEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -112,12 +121,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Insurer's e-mail address"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/insuranceGreenCardStartDateEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -131,6 +142,7 @@
                 android:id="@+id/insuranceGreenCardEndDateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
         </RelativeLayout>
@@ -146,12 +158,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Location of impact on the vehicle"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/vehicleDamageLocationEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -166,12 +180,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First name"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/ownerFirstNameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -186,12 +202,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="last name"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp" />
 
             <EditText
                 android:id="@+id/ownerLastNameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -202,6 +220,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@id/ownerLastNameLayout"
+            android:background="@drawable/button_connection_background"
+            android:textColor="@color/blue_button_text"
             android:text="Edit" />
     </RelativeLayout>
 
@@ -212,5 +232,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/userInfoFrame"
         android:layout_marginTop="20dp"
+        android:background="@drawable/button_configure_background"
+        android:textColor="@color/white"
         android:text="complete report" />
 </RelativeLayout>

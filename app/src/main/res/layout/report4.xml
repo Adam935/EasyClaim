@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/background_gradient">>
 
     <!-- En-tête -->
     <TextView
         android:id="@+id/textViewHeader"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CIRCONSTANCES"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/textViewSubHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Circumstances"
-        android:textSize="14sp"
-        android:gravity="center_horizontal"
-        android:layout_below="@id/textViewHeader"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="100dp"/>
 
     <!-- LinearLayout pour chaque paire CheckBox-TextView -->
     <LinearLayout
@@ -30,8 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/textViewSubHeader"
-        android:layout_marginTop="16dp">
+        android:layout_below="@id/textViewHeader"
+        android:layout_marginTop="30dp">
 
         <!-- CheckBox pour Véhicule A -->
         <CheckBox
@@ -45,7 +39,9 @@
             android:layout_height="wrap_content"
             android:text="Leaving a parking lot / opening the car door"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            />
 
         <!-- CheckBox pour Véhicule B -->
         <CheckBox
@@ -76,7 +72,8 @@
             android:layout_height="wrap_content"
             android:text="Took a parking space"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:gravity="center"/>
 
         <!-- CheckBox pour Véhicule B -->
         <CheckBox
@@ -99,7 +96,7 @@
         <CheckBox
             android:id="@+id/checkBoxVehicleA3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <!-- TextView pour la circonstance -->
         <TextView
@@ -107,7 +104,8 @@
             android:layout_height="wrap_content"
             android:text="Coming out of a parking lot, a private place"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:gravity="center"/>
 
         <!-- CheckBox pour Véhicule B -->
         <CheckBox
@@ -138,7 +136,8 @@
             android:layout_height="wrap_content"
             android:text="Rear-end collision, driving in the same direction and in the same lane"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:gravity="center"/>
 
         <!-- CheckBox pour Véhicule B -->
         <CheckBox
@@ -169,7 +168,8 @@
             android:layout_height="wrap_content"
             android:text="Step back"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:gravity="center"/>
 
         <!-- CheckBox pour Véhicule B -->
         <CheckBox
@@ -200,7 +200,8 @@
             android:layout_height="wrap_content"
             android:text="Failed to observe a right-of-way signal or a red light"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:gravity="center"/>
 
         <!-- CheckBox pour Véhicule B -->
         <CheckBox
@@ -218,7 +219,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearLayoutCircumstance6"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_connection_background"
+        android:textColor="@color/blue_button_text"
         android:text="Fin du rapport" />
 
 </RelativeLayout>

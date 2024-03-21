@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/background_gradient">
 
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfView"
@@ -11,20 +13,25 @@
 
     <Button
         android:id="@+id/buttonSignatureA"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        android:layout_width="170dp"
+        android:layout_height="75dp"
         android:layout_below="@id/pdfView"
         android:layout_alignParentStart="true"
-        android:text="Signature Conducteur A" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_configure_background"
+        android:text="Signature Conducteur A"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/buttonSignatureB"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
+        android:layout_width="170dp"
+        android:layout_height="75dp"
         android:layout_below="@id/pdfView"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="0dp"
-        android:text="Signature Conducteur B" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_yellow"
+        android:text="Signature Conducteur B"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/buttonValidate"
@@ -34,6 +41,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="22dp"
-        android:text="Valider le constat !" />
+        android:text="Valider le constat !"
+        android:background="@drawable/button_connection_background"
+        android:textColor="@color/blue_button_text"/>
 
 </RelativeLayout>
