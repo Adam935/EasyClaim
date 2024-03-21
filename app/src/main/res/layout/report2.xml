@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
@@ -106,73 +107,86 @@
     </LinearLayout>
 
     <!-- Injury Section -->
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/injurySection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/localizationSection"
-        android:layout_marginBottom="16dp">
+        android:layout_below="@id/localizationSection">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Blessures"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+        <!-- ImageView for the injury vector image -->
+        <ImageView
+            android:id="@+id/injuryImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/blesses" /> <!-- Replace with your actual vector asset -->
 
+        <!-- RadioGroup for 'Yes' and 'No' options -->
         <RadioGroup
             android:id="@+id/injuryRadioGroup"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="16dp"> <!-- Adjust padding as needed -->
+
             <RadioButton
                 android:id="@+id/injuryYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Oui" />
+                android:text="Oui"
+                android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
+
             <RadioButton
                 android:id="@+id/injuryNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Non" />
+                android:text="Non"
+                android:layout_marginStart="16dp"
+                android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
         </RadioGroup>
-    </LinearLayout>
+    </FrameLayout>
 
     <!-- Damage Section -->
-    <LinearLayout
-        android:id="@+id/damageSection"
+    <FrameLayout
+        android:id="@+id/dammageSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@id/injurySection">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Dommages"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+        <!-- ImageView for the injury vector image -->
+        <ImageView
+            android:id="@+id/damageSectionImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/degats" /> <!-- Replace with your actual vector asset -->
 
+        <!-- RadioGroup for 'Yes' and 'No' options -->
         <RadioGroup
             android:id="@+id/damageRadioGroup"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="16dp"> <!-- Adjust padding as needed -->
+
             <RadioButton
                 android:id="@+id/damageYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Oui" />
+                android:text="Oui"
+                android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
+
             <RadioButton
                 android:id="@+id/damageNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Non" />
+                android:text="Non"
+                android:layout_marginStart="16dp"
+                android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
         </RadioGroup>
-    </LinearLayout>
+    </FrameLayout>
 
     <!-- Bouton de continuation -->
     <LinearLayout
@@ -191,4 +205,9 @@
             android:background="@drawable/button_configure_background"
             android:textColor="@color/white" />
     </LinearLayout>
+
+
+
+
+
 </RelativeLayout>
