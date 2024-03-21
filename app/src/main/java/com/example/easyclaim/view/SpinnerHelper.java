@@ -6,10 +6,20 @@ import android.widget.Spinner;
 
 import com.example.easyclaim.R;
 
+import java.util.Calendar;
+
 
 public class SpinnerHelper {
 
     public static void setupSpinners(Activity activity) {
+        // Get current date and time
+        Calendar calendar = Calendar.getInstance();
+        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        int currentMonth = calendar.get(Calendar.MONTH);
+        int currentYear = calendar.get(Calendar.YEAR) - 2000; // as years array starts from 2000
+        int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+        int currentMinute = calendar.get(Calendar.MINUTE);
+
         // Créer des tableaux de chaînes pour les plages de valeurs
         String[] days = new String[31];
         String[] months = new String[12];
@@ -42,11 +52,18 @@ public class SpinnerHelper {
         Spinner hourSpinner = activity.findViewById(R.id.hourSpinner);
         Spinner minuteSpinner = activity.findViewById(R.id.minuteSpinner);
 
-        // Définir les adaptateurs pour les Spinners
+        // Associer les adaptateurs aux Spinners
         daySpinner.setAdapter(dayAdapter);
         monthSpinner.setAdapter(monthAdapter);
         yearSpinner.setAdapter(yearAdapter);
         hourSpinner.setAdapter(hourAdapter);
         minuteSpinner.setAdapter(minuteAdapter);
+
+        // Set the default values for the spinners
+        daySpinner.setSelection(currentDay - 1); // -1 because array index starts from 0
+        monthSpinner.setSelection(currentMonth); // Calendar.MONTH starts from 0 for January
+        yearSpinner.setSelection(currentYear);
+        hourSpinner.setSelection(currentHour);
+        minuteSpinner.setSelection(currentMinute);
     }
 }
