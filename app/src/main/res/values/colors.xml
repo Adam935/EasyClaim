@@ -7,6 +7,7 @@
     <color name="dark_gray">#FF616161</color>
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
+    <color name="yellow">#DAAB3A</color>
 
     <color name="blue_button_text">#396FD8</color>
     <color name="blue_button_background">#396FD8</color>
