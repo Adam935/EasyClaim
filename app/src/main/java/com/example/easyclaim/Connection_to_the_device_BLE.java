@@ -24,6 +24,8 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -330,6 +332,40 @@ public class Connection_to_the_device_BLE extends AppCompatActivity {
                 } else {
                     // The device has already been discovered, do nothing
                 }
+
+                // Créez le comparateur
+                Comparator<ScanResult> comparator = new Comparator<ScanResult>() {
+                    @Override
+                    public int compare(ScanResult result1, ScanResult result2) {
+                        String name1 = "Unnamed";
+                        String name2 = "Unnamed";
+
+                        // Check if the necessary Bluetooth permissions are granted
+                        if (appPermission.checkBluetoothPermission()) {
+                            if (result1.getDevice().getName() != null) {
+                                name1 = result1.getDevice().getName();
+                            }
+                            if (result2.getDevice().getName() != null) {
+                                name2 = result2.getDevice().getName();
+                            }
+                        } else {
+                            appPermission.requestBluetoothPermission();
+                        }
+
+                        // Mettez "Unnamed" en dernier
+                        if (name1.equals("Unnamed")) return 1;
+                        if (name2.equals("Unnamed")) return -1;
+
+                        // Comparez les dBm, mettez le plus élevé en premier
+                        return Integer.compare(result2.getRssi(), result1.getRssi());
+                    }
+                };
+
+                // Triez la liste des résultats de scan
+                Collections.sort(scanResults, comparator);
+
+                // Notifiez l'adaptateur que les données ont changé
+                scanResultAdapter.notifyDataSetChanged();
             } else {
                 Log.e("MainActivity", "ScanResult or BluetoothDevice is null.");
             }
