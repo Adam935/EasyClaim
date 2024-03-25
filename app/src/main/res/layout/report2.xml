@@ -6,27 +6,25 @@
     android:background="@drawable/background_gradient"
     android:padding="16dp">
 
-    <!-- Date and Time Section -->
-    <LinearLayout
-        android:id="@+id/dateTimeSection"
+    <!-- Date Section -->
+    <FrameLayout
+        android:id="@+id/dateSection"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="22dp"
-        android:layout_marginTop="100dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date de l'accident"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+        <!-- ImageView for the injury vector image -->
+        <ImageView
+            android:id="@+id/dateImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/date" /> <!-- Replace with your actual vector asset -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="20dp">
 
             <Spinner
                 android:id="@+id/daySpinner"
@@ -50,19 +48,28 @@
                 android:layout_weight="1"
                 android:prompt="@string/year_prompt" />
         </LinearLayout>
+    </FrameLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Heure"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+    <!-- Time Section -->
+    <FrameLayout
+        android:id="@+id/timeSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateSection">
+
+        <!-- ImageView for the injury vector image -->
+        <ImageView
+            android:id="@+id/timeImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/time" /> <!-- Replace with your actual vector asset -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="20dp">
 
             <Spinner
                 android:id="@+id/hourSpinner"
@@ -86,14 +93,14 @@
                 android:prompt="@string/minute_prompt" />
 
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 
     <!-- Localization Section -->
     <FrameLayout
         android:id="@+id/localizationSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dateTimeSection">
+        android:layout_below="@id/timeSection">
 
         <!-- ImageView for the injury vector image -->
         <ImageView
@@ -110,7 +117,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="10dp"
             android:textColorHint="@color/black"
-            android:hint="Lieu exact de l'accident" />
+            android:hint="Exact location of the accident" />
 
     </FrameLayout>
 
@@ -142,14 +149,14 @@
                 android:id="@+id/injuryYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Oui"
+                android:text="Yes"
                 android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
 
             <RadioButton
                 android:id="@+id/injuryNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Non"
+                android:text="No"
                 android:layout_marginStart="16dp"
                 android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
         </RadioGroup>
@@ -183,14 +190,14 @@
                 android:id="@+id/damageYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Oui"
+                android:text="Yes"
                 android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
 
             <RadioButton
                 android:id="@+id/damageNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Non"
+                android:text="No"
                 android:layout_marginStart="16dp"
                 android:buttonTint="@color/black" /> <!-- Change this to your desired color -->
         </RadioGroup>
@@ -207,7 +214,7 @@
             android:id="@+id/continueButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Continuer"
+            android:text="Next"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/button_configure_background"
