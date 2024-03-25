@@ -1,7 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.EasyClaim" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Base.Theme.EasyClaim" parent="Theme.Design.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <!-- Style spécifique pour les Spinner -->
+    <style name="Theme.EasyClaim.Spinner" parent="Widget.AppCompat.Spinner.Underlined">
+        <item name="android:textColor">@color/white</item>
+        <!-- Utilisez android:backgroundTint pour les versions récentes d'Android. Pour des versions plus anciennes, il peut être nécessaire d'adapter. -->
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <!-- Thème de l'application avec le style Spinner intégré -->
+    <style name="Theme.EasyClaim" parent="Base.Theme.EasyClaim">
+        <!-- Appliquer le style Spinner à tous les Spinner de l'application -->
+        <item name="spinnerStyle">@style/Theme.EasyClaim.Spinner</item>
     </style>
 </resources>

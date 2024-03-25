@@ -22,7 +22,7 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:gravity="center_horizontal"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
 
     <!-- LinearLayout pour chaque paire CheckBox-TextView -->
     <LinearLayout

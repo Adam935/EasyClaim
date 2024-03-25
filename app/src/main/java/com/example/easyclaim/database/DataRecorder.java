@@ -204,7 +204,7 @@ public class DataRecorder {
                             Log.e("test", "Email end: " + emailEnd);
                         } else if (currentName.equals("insuranceGreenCardNumberTextView")) {
                             ChocSpeed = value;
-                            Log.e("test", "Choc speedl,l: " + ChocSpeed);
+                            Log.e("test", "Choc speed: " + ChocSpeed);
                         } else if (!updatedTextViews.contains(textView.getTag())) {
                             String updatedText = textView.getTag() + " : " + value;
                             textView.setText(updatedText);

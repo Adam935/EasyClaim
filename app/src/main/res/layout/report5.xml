@@ -19,7 +19,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_configure_background"
-        android:text="Signature Conducteur A"
+        android:text="Signature Driver A"
         android:textColor="@color/white" />
 
     <Button
@@ -30,7 +30,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_yellow"
-        android:text="Signature Conducteur B"
+        android:text="Signature Driver B"
         android:textColor="@color/white" />
 
     <Button
@@ -41,7 +41,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="22dp"
-        android:text="Valider le constat !"
+        android:text="Validate the report!"
         android:background="@drawable/button_connection_background"
         android:textColor="@color/blue_button_text"/>
 

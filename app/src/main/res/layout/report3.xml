@@ -16,7 +16,7 @@
         android:id="@+id/textViewTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
         android:text="THIRD PARTY INFORMATIONS"
         android:textColor="@color/white"
         android:textSize="25sp"

@@ -218,11 +218,11 @@
             android:id="@+id/editButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_below="@id/ownerLastNameLayout"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/button_connection_background"
-            android:textColor="@color/blue_button_text"
-            android:text="Edit" />
+            android:text="Edit"
+            android:textColor="@color/blue_button_text" />
     </RelativeLayout>
 
     <!-- Button to complete the report and go to the next page -->
