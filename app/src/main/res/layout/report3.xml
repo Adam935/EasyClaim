@@ -5,17 +5,25 @@
     android:padding="20dp"
     android:background="@drawable/background_gradient">
 
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="267dp"
+        android:layout_height="153dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo_easyclaim" />
+
     <TextView
         android:id="@+id/textViewTest"
-        android:layout_marginTop="100dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INFORMATIONS RELATIVES AU TIERS"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:text="THIRD PARTY INFORMATIONS"
         android:textColor="@color/white"
-        android:gravity="center"
-        />
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@id/logoImageView"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/editNomAssurance"
@@ -23,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewTest"
-        android:hint="Nom de l'assurance"
+        android:hint="Name of insurance company"
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"
         />
@@ -33,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editNomAssurance"
-        android:hint="Numéro de d'assurance"
+        android:hint="Insurance number"
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"/>
 
@@ -42,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editNumeroContrat"
-        android:hint="Immatriculation"
+        android:hint="Immatriculation number"
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"/>
 
@@ -51,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editImmatriculation"
-        android:hint="Adresse Mail de l'assureur"
+        android:hint="Insurer's e-mail address"
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"/>
 
@@ -60,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editMailAssureur"
-        android:hint="Adresse Mail du propriétaire de la voiture"
+        android:hint="Driver's e-mail address"
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"/>
 
@@ -69,7 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editMailProprietaire"
-        android:text="Continuer le report"
+        android:text="Next"
         android:background="@drawable/button_configure_background"
         android:textColor="@color/white"
         android:layout_marginTop="30dp"/>
