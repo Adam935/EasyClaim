@@ -100,6 +100,12 @@ public class AppPermission {
      Location Permissions
      ****************/
 
+    public void checkAndRequestLocationPermissions() {
+        if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Request location permissions if not granted
+            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+        }
+    }
     public void requestLocationSettings() {
         // Créez une demande de localisation
         LocationRequest locationRequest = LocationRequest.create();
