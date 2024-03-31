@@ -63,7 +63,7 @@ public class Report_page1 extends AppCompatActivity {
         // Lire les données depuis le fichier et les afficher dans les TextViews
         dataRecorder.clearData("Easyclaim_data_reformat.txt");
 
-        dataRecorder.Reformate_data_from_device("data_for_easyclaim.txt", textViews, nomenclatureDictionary);
+        dataRecorder.Reformate_data_from_device("data_for_easyclaim_for_test.txt", textViews, nomenclatureDictionary);
 
 // Initialize EditTexts
         EditText insuranceCompanyEditText = findViewById(R.id.insuranceCompanyEditText);
